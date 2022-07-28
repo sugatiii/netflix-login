@@ -39,7 +39,7 @@ function header() {
           <li className='linkHeader'>FILTER</li>
           <li className='linkHeader'>STORIES</li>
           <li className='linkHeader'>ANIME</li>
-          <li className='linkHeader'>DONGHUA</li>
+          <li className='linkHeader'>test</li>
         </ul>
       </div>
 
