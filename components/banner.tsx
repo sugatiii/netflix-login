@@ -4,6 +4,8 @@ import Image from 'next/image'
 import {baseurl} from '../constans/movie'
 import {FaInfo, FaInfoCircle, FaPlay} from 'react-icons/fa'
 import Information from './information'
+import { useRecoilState } from 'recoil'
+import { modalState, movieState } from '../atoms/modalAtom'
 
 interface Props {
     netflixOriginals: Movie[]
@@ -13,12 +15,13 @@ function banner({netflixOriginals}:Props) {
 
     const [bannerMovie, setBannerMovie] = useState<Movie | null>(null)
     const [show, setShow] = useState(false)
+    const [showModal, setShowModal] = useRecoilState(modalState)
+    const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
 
     useEffect(() => {
         setBannerMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
     },[netflixOriginals])
 
-    console.log(bannerMovie)
 
   return (
     <div className='flex flex-col py-16 space-y-4 md:space-y-3 md:py-20 lg:space-y-4 lg:h-[65vh] lg:justify-end'>
@@ -32,7 +35,16 @@ function banner({netflixOriginals}:Props) {
           <p className='max-w-xs text-[16px] text-shadow-md md:max-w-md md:text-[20px] lg:max-w-lg lg:text-[22px]'>{bannerMovie?.overview}</p>
       <div className='flex space-x-2'>
         <button className='bannerButton bg-white text-black'><FaPlay className='h-4 w-4 text-black md:h-7 md:w-7' />Play </button>
-        <button type="button" className='bannerButton bg-gray-400' ><FaInfoCircle className='h-4 w-4 md:h-7 md:w-7' />More Info </button>
+        <button 
+        type="button" 
+        className='bannerButton bg-gray-400' 
+        onClick={() => {
+          setCurrentMovie(bannerMovie);
+          setShowModal(true);
+        }}
+        >
+          <FaInfoCircle className='h-4 w-4 md:h-7 md:w-7' />More Info 
+        </button>
         
       </div>
 

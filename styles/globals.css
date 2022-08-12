@@ -29,4 +29,20 @@
     .input{
         @apply w-full rounded py-3 px-3.5 bg-[#333] placeholder-[gray] focus:outline-none
     }
+
+    .modalButton{
+        @apply flex h-11 w-11 items-center justify-center rounded-full transition hover:opacity-70
+        ;
+    }
+
+    .modalButtonPlayer{
+        @apply flex items-center justify-center rounded-full transition hover:opacity-70
+        ;
+    }
+
+    .playerButton{
+        @apply flex items-center rounded gap-x-2 px-2 py-1 text-sm font-semibold transition hover:opacity-75
+        md:px-3 md:py-2 md:text-xl
+        ;
+    }
 }

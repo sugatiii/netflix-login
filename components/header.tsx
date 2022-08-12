@@ -39,7 +39,7 @@ function header() {
           <li className='linkHeader'>FILTER</li>
           <li className='linkHeader'>STORIES</li>
           <li className='linkHeader'>ANIME</li>
-          <li className='linkHeader'>test</li>
+          <li className='linkHeader'>DONGHUA</li>
         </ul>
       </div>
 
@@ -47,14 +47,16 @@ function header() {
         <SearchIcon className='hidden h-6 w-6 sm:inline'/>
         <p className='hidden lg:inline'>Kids</p>
         <BellIcon className='h-6 w-6'/>
-        <Link href="./account">
+        {/* <Link href="./account"> */}
           <img
+          onClick={logout}
           src='./account.jpeg'
           width={30}
           height={30}
           className='rounded cursor-pointer'
           />
-        </Link>
+        {/* </Link> */}
+        
       </div>
     </header>
 

@@ -50,11 +50,11 @@ function login() {
 
                 </label>
                 {errors.password && <p>This field is required</p>}
-                <button type="submit" className='w-full p-2 bg-[#e71414] text-white rounded-lg'>Sign In</button>
+                <button type="submit" className='w-full p-2 bg-[#e71414] text-white rounded-lg' onClick={()=>setLogin(true)}>Sign In</button>
             </div>
 
             <h1>
-                New to Netflix ? <button className='hover:underline'>Sign Up</button>
+                New to Netflix ? <button className='hover:underline' onClick={()=>setLogin(false)}>Sign Up</button>
             </h1>
             
         </form>
